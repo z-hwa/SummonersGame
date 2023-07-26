@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05737879733bae34ba8fe05ff574385a, type: 3}
+  m_Name: 00000
+  m_EditorClassIdentifier: 
+  unitName: "\u96EA\u8389\xB7\u7279\u5185\u65AF"
+  level: 89
+  attribute: 1
+  character: 1
+  racialValue: 255
+  potnetial: 000000000000000000000000000000000000000000000000
+  qualification: 2.2
+  nowAbilityValue: f40100006c0200002c010000c201000000020000d0020000
+  defaultAbilityValue: 000000000000000000000000000000000000000000000000
+  nowSkillID: 340000003c0000001e00000059000000
+  levelRange: 0000000000000000
+  racialValueRange:
+  - 0
+  abilityValueRange: 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
