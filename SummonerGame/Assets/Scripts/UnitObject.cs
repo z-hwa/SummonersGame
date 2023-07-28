@@ -21,15 +21,12 @@ public class UnitObject : ScriptableObject
     public int[] nowAbilityValue = new int[6]; //現在的能力值
     public int[] defaultAbilityValue = new int[6]; //原先的基礎能力值區間
 
-    public string[] skillTree = new string[20]; //紀錄該腳色所有的技能
-    public string[] nowSkillID = new string[4];   //當前裝備的四個技能
+    public int[] skillTree = new int[20]; //紀錄該腳色所有的技能
+    public int[] nowSkillID = new int[4];   //當前裝備的四個技能
 
 
     [Header("原生數值區間")]
     public int[] levelRange = new int[2];   //野生的等級區間
     public double[] racialValueRange = new double[2];   //野生的種族值區間
     public int[] abilityValueRange = new int[12];   //原生的基礎能力值區間
-
-    //技能
-    //繼承後添加
 }

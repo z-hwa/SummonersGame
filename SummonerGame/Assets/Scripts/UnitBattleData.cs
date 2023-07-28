@@ -10,10 +10,11 @@ public class UnitBattleData : MonoBehaviour
     public int level;   //等級
     public Attribute attribute; //屬性
     public int[] nowAbilityValue = new int[6];  //當前能力值
-    public string[] nowSkillName = new string[4];   //當前裝備的四個技能
+    public int[] nowSkillID = new int[4];   //當前裝備的四個技能
 
     // Start is called before the first frame update
-    void Start()
+    //遊戲資料初始化
+    void Awake()
     {
         /*
          從背包系統載入
@@ -25,6 +26,6 @@ public class UnitBattleData : MonoBehaviour
         level = unitData.level;
         attribute = unitData.attribute;
         unitData.nowAbilityValue.CopyTo(nowAbilityValue, 0);
-        unitData.nowSkillID.CopyTo(nowSkillName, 0);
+        unitData.nowSkillID.CopyTo(nowSkillID, 0);
     }
 }

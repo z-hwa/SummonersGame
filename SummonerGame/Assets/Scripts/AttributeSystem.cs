@@ -13,5 +13,6 @@ public enum Attribute
 
 public class AttributeSystem : MonoBehaviour
 {
-   
+    //暗影屬性的克制表
+    public double[] shadowEffect = {0, 1f,  0.5f, 2f, 2f};
 }
