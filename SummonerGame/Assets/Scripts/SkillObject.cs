@@ -8,6 +8,7 @@ public class SkillObject : ScriptableObject
     [Header("技能敘述")]
     public string skillName;
     public int ID;
+    public int learnLevel;
     public int power;
     public int pp;
 

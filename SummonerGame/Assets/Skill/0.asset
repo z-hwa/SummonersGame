@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skillName: "\u5E7D\u5F71\u8E22\u51FB"
   ID: 0
+  learnLevel: 1
   power: 110
   pp: 5
   skillEffect: "\u9020\u621050%\u7269\u653B\u7684\u56FA\u5B9A\u50B7\u5BB3\u300130%\u7269\u653B\u7684\u7269\u7406\u50B7\u5BB3\u4EE5\u53CA30%\u7279\u653B\u7684\u6697\u5F71\u7CFB\u50B7\u5BB3"

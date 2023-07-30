@@ -6,7 +6,7 @@ using TMPro;
 
 public class UISystem : MonoBehaviour
 {
-    [SerializeField]private SkillManager skillManager; //用於連接技能管理者
+    [SerializeField]private SkillSystem skillManager; //用於連接技能管理者
     private float diff = 0.0001f; //用於除法的/0例外預防
 
     [Header("玩家屬性")]
@@ -43,6 +43,13 @@ public class UISystem : MonoBehaviour
     {
         playerHp.text = nowHp + "/" + maxHp;    //599/599 生命值顯示
         playerHpSlider.value = (nowHp+diff) / (maxHp+diff); //滑條展示
+    }
+
+    //顯示敵人生命值
+    public void ShowEnemyHp(int nowHp, int maxHp)
+    {
+        enemyHp.text = nowHp + "/" + maxHp;    //599/599 生命值顯示
+        enemyHpSlider.value = (nowHp + diff) / (maxHp + diff); //滑條展示
     }
 
     //展示玩家以及敵人的名稱、等級、屬性資訊
