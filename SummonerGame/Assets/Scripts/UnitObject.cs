@@ -18,11 +18,11 @@ public class UnitObject : ScriptableObject
     public int[] potnetial = new int[6];    //六個潛能值(物攻、特攻、物防、特防、速度、生命)
     public double qualification;    //資質(影響每升一級獲得的成長值)
 
-    public int[] nowAbilityValue = new int[6]; //現在的能力值
+    public int[] usingAbilityValue = new int[6]; //現在的能力值
     public int[] defaultAbilityValue = new int[6]; //原先的基礎能力值區間
 
     public int[] skillTree = new int[20]; //紀錄該腳色所有的技能
-    public int[] nowSkillID = new int[4];   //當前裝備的四個技能
+    public int[] usingSkillID = new int[4];   //當前裝備的四個技能
 
 
     [Header("原生數值區間")]

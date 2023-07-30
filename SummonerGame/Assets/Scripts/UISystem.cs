@@ -6,20 +6,27 @@ using TMPro;
 
 public class UISystem : MonoBehaviour
 {
-    public SkillManager skillManager; //用於連接技能管理者
+    [SerializeField]private SkillManager skillManager; //用於連接技能管理者
+    private float diff = 0.0001f; //用於除法的/0例外預防
 
     [Header("玩家屬性")]
-    public TextMeshProUGUI playerUnitName;
-    public TextMeshProUGUI playerLevel;
-    public Image playerAttribute;
+    [SerializeField] private TextMeshProUGUI playerUnitName;  //名稱
+    [SerializeField] private TextMeshProUGUI playerLevel; //等級
+    [SerializeField] private Image playerAttribute;   //屬性圖案
+
+    [SerializeField] private TextMeshProUGUI playerHp;    //血量
+    [SerializeField] private Slider playerHpSlider;   //血量滑條
 
     [Header("敵人屬性")]
-    public TextMeshProUGUI enemyUnitName;
-    public TextMeshProUGUI enemyLevel;
-    public Image enemyAttribute;
+    [SerializeField] private TextMeshProUGUI enemyUnitName;
+    [SerializeField] private TextMeshProUGUI enemyLevel;
+    [SerializeField] private Image enemyAttribute;
+
+    [SerializeField] private TextMeshProUGUI enemyHp;    //血量
+    [SerializeField] private Slider enemyHpSlider;   //血量滑條
 
     [Header("按鍵操作系統")]
-    public TextMeshProUGUI[] skill = new TextMeshProUGUI[4];
+    [SerializeField] private TextMeshProUGUI[] skill = new TextMeshProUGUI[4];
 
     //顯示玩家技能的名字
     public void ShowSkillName(int skillNum, int[] skillID)
@@ -31,6 +38,13 @@ public class UISystem : MonoBehaviour
         }
     } 
 
+    //顯示玩家生命值
+    public void ShowPlayerHp(int nowHp, int maxHp)
+    {
+        playerHp.text = nowHp + "/" + maxHp;    //599/599 生命值顯示
+        playerHpSlider.value = (nowHp+diff) / (maxHp+diff); //滑條展示
+    }
+
     //展示玩家以及敵人的名稱、等級、屬性資訊
     public void ShowPlayerData(string unitName, int level, Attribute attribute)
     {
@@ -41,7 +55,6 @@ public class UISystem : MonoBehaviour
          * 等建好屬性圖庫
          * */
     }
-
     public void ShowEnemyData(string unitName, int level, Attribute attribute)
     {
         enemyUnitName.text = unitName;

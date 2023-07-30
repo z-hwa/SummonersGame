@@ -323,8 +323,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -43}
-  m_SizeDelta: {x: -72, y: 86}
+  m_AnchoredPosition: {x: -0.01953125, y: -43}
+  m_SizeDelta: {x: -71.96091, y: 86}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &150863969
 MonoBehaviour:
@@ -372,7 +372,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0.7
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -1119,8 +1119,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.25}
   m_AnchorMax: {x: 1, y: 0.75}
-  m_AnchoredPosition: {x: -5, y: 0}
-  m_SizeDelta: {x: -20, y: 0}
+  m_AnchoredPosition: {x: 2.5, y: 0}
+  m_SizeDelta: {x: -5, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &455200052
 GameObject:
@@ -2618,7 +2618,7 @@ MonoBehaviour:
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 1, g: 1, b: 1, a: 0.5019608}
+    m_DisabledColor: {r: 1, g: 1, b: 1, a: 1}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -2632,7 +2632,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 1184513381}
   m_OnClick:
     m_PersistentCalls:
@@ -2750,7 +2750,7 @@ MonoBehaviour:
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 1, g: 1, b: 1, a: 0.5019608}
+    m_DisabledColor: {r: 1, g: 1, b: 1, a: 1}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -2764,7 +2764,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 1217598935}
   m_OnClick:
     m_PersistentCalls:
@@ -3156,9 +3156,13 @@ MonoBehaviour:
   playerUnitName: {fileID: 1606340054}
   playerLevel: {fileID: 1565182724}
   playerAttribute: {fileID: 564723334}
+  playerHp: {fileID: 2090032171}
+  playerHpSlider: {fileID: 150863969}
   enemyUnitName: {fileID: 2009088532}
   enemyLevel: {fileID: 1736227516}
   enemyAttribute: {fileID: 1036766830}
+  enemyHp: {fileID: 1461465454}
+  enemyHpSlider: {fileID: 140417541}
   skill:
   - {fileID: 363691971}
   - {fileID: 2058725956}
@@ -4098,6 +4102,7 @@ MonoBehaviour:
   unitName: 
   level: 0
   attribute: 0
+  initAbilityValue: 000000000000000000000000000000000000000000000000
   nowAbilityValue: 000000000000000000000000000000000000000000000000
   nowSkillID: 00000000000000000000000000000000
 --- !u!1 &1742510881
@@ -4177,7 +4182,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 1742510884}
   m_OnClick:
     m_PersistentCalls:
@@ -4370,7 +4375,7 @@ MonoBehaviour:
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 1, g: 1, b: 1, a: 0.5019608}
+    m_DisabledColor: {r: 1, g: 1, b: 1, a: 1}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -4384,7 +4389,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 1835616926}
   m_OnClick:
     m_PersistentCalls:
@@ -4468,10 +4473,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8271fb091ae8484f90457b167280ebd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  battleState: 0
   playerBattleData: {fileID: 1737131362}
   enemyBattleData: {fileID: 1947389575}
   skillManager: {fileID: 466761933}
   uISystem: {fileID: 1471524263}
+  skillButton:
+  - {fileID: 1742510883}
+  - {fileID: 1184513380}
+  - {fileID: 1835616925}
+  - {fileID: 1217598934}
 --- !u!4 &1889218228
 Transform:
   m_ObjectHideFlags: 0
@@ -4668,6 +4679,7 @@ MonoBehaviour:
   unitName: 
   level: 0
   attribute: 0
+  initAbilityValue: 000000000000000000000000000000000000000000000000
   nowAbilityValue: 000000000000000000000000000000000000000000000000
   nowSkillID: 00000000000000000000000000000000
 --- !u!1 &1959669833
@@ -5183,8 +5195,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.25}
   m_AnchorMax: {x: 1, y: 0.75}
-  m_AnchoredPosition: {x: -5, y: 0}
-  m_SizeDelta: {x: -20, y: 0}
+  m_AnchoredPosition: {x: 2.5, y: 0}
+  m_SizeDelta: {x: -5.000061, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &2090032169
 GameObject:

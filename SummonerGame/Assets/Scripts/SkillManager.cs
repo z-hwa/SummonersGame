@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class SkillManager: MonoBehaviour
 {
-    public AttributeSystem attributeSystem; //屬性系統(用於獲取屬性克制倍率)
-    public SkillData skillData; //技能資料(用於查詢)
+    [SerializeField]private AttributeSystem attributeSystem; //屬性系統(用於獲取屬性克制倍率)
+    [SerializeField]private SkillData skillData; //技能資料(用於查詢)
 
     //根據ID施放技能
     public void UsingSkill(int skillID, UnitBattleData player, UnitBattleData enemy)
@@ -48,7 +48,7 @@ public class SkillManager: MonoBehaviour
     }
 
     //幽影踢擊
-    public void UseSkill_0(UnitBattleData player, UnitBattleData enemy)
+    private void UseSkill_0(UnitBattleData player, UnitBattleData enemy)
     {
         //基數
         double fixeDmg = player.nowAbilityValue[0] * 0.5; //固定傷害

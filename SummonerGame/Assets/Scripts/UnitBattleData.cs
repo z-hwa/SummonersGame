@@ -4,17 +4,18 @@ using UnityEngine;
 
 public class UnitBattleData : MonoBehaviour
 {
-    public UnitObject unitData; //從來源獲取當前的出戰腳色object
+    [SerializeField] private UnitObject unitData; //從來源獲取當前的出戰腳色object
 
     public string unitName; //名稱
     public int level;   //等級
     public Attribute attribute; //屬性
+    public int[] initAbilityValue = new int[6]; //原始能力值
     public int[] nowAbilityValue = new int[6];  //當前能力值
     public int[] nowSkillID = new int[4];   //當前裝備的四個技能
 
     // Start is called before the first frame update
     //遊戲資料初始化
-    void Awake()
+    public void LoadUnitData()
     {
         /*
          從背包系統載入
@@ -25,7 +26,8 @@ public class UnitBattleData : MonoBehaviour
         unitName = unitData.unitName;
         level = unitData.level;
         attribute = unitData.attribute;
-        unitData.nowAbilityValue.CopyTo(nowAbilityValue, 0);
-        unitData.nowSkillID.CopyTo(nowSkillID, 0);
+        unitData.usingAbilityValue.CopyTo(initAbilityValue, 0);   //複製原始資料
+        unitData.usingAbilityValue.CopyTo(nowAbilityValue, 0);    //複製使用的當前資料
+        unitData.usingSkillID.CopyTo(nowSkillID, 0);
     }
 }
