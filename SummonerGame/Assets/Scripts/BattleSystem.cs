@@ -47,9 +47,14 @@ public class BattleSystem : MonoBehaviour
         //載入初始化的遊戲UI資訊
         uISystem.ShowPlayerData(playerBattleData.unitName, playerBattleData.level, playerBattleData.attribute);
         uISystem.ShowEnemyData(enemyBattleData.unitName, enemyBattleData.level, enemyBattleData.attribute);
+        
         uISystem.ShowSkillName(4, playerBattleData.nowSkillID);
+        
         uISystem.ShowPlayerHp(playerBattleData.nowAbilityValue[5], playerBattleData.initAbilityValue[5]);
         uISystem.ShowEnemyHp(enemyBattleData.nowAbilityValue[5], enemyBattleData.initAbilityValue[5]);
+
+        uISystem.ShowPlayerSprite(playerBattleData.unitID);
+        uISystem.ShowEnemySprite(enemyBattleData.unitID);
 
         //重設
         roundNum = 0;   //回合數

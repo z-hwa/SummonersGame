@@ -6,13 +6,17 @@ using TMPro;
 
 public class UISystem : MonoBehaviour
 {
-    [SerializeField]private SkillSystem skillManager; //用於連接技能管理者
     private float diff = 0.0001f; //用於除法的/0例外預防
+
+    [Header("其他系統")]
+    [SerializeField] private SkillSystem skillSystem; //用於連接技能管理者
+    [SerializeField] private SpriteSystem spriteSystem; //用於連接圖片系統
 
     [Header("玩家屬性")]
     [SerializeField] private TextMeshProUGUI playerUnitName;  //名稱
     [SerializeField] private TextMeshProUGUI playerLevel; //等級
     [SerializeField] private Image playerAttribute;   //屬性圖案
+    [SerializeField] private SpriteRenderer playerSprite;   //玩家腳色圖
 
     [SerializeField] private TextMeshProUGUI playerHp;    //血量
     [SerializeField] private Slider playerHpSlider;   //血量滑條
@@ -21,6 +25,7 @@ public class UISystem : MonoBehaviour
     [SerializeField] private TextMeshProUGUI enemyUnitName;
     [SerializeField] private TextMeshProUGUI enemyLevel;
     [SerializeField] private Image enemyAttribute;
+    [SerializeField] private SpriteRenderer enemySprite;    //敵人腳色圖
 
     [SerializeField] private TextMeshProUGUI enemyHp;    //血量
     [SerializeField] private Slider enemyHpSlider;   //血量滑條
@@ -28,13 +33,26 @@ public class UISystem : MonoBehaviour
     [Header("按鍵操作系統")]
     [SerializeField] private TextMeshProUGUI[] skill = new TextMeshProUGUI[4];
 
+    /* 顯示單位的圖片
+     * 玩家> 背面
+     * 敵人> 正面
+     */
+    public void ShowPlayerSprite(int unitID)
+    {
+        playerSprite.sprite = spriteSystem.GetSprite(unitID, "rear");
+    }
+    public void ShowEnemySprite(int unitID)
+    {
+        enemySprite.sprite = spriteSystem.GetSprite(unitID, "front");
+    }
+
     //顯示玩家技能的名字
     public void ShowSkillName(int skillNum, int[] skillID)
     {
         //skillNum=4代表傳進來的技能ID數量
         for(int i=0;i<skillNum;i++)
         {
-            skill[i].text = skillManager.CheckSkillName(skillID[i]);
+            skill[i].text = skillSystem.CheckSkillName(skillID[i]);
         }
     } 
 
