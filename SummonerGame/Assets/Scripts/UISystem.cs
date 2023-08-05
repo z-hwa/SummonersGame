@@ -10,7 +10,7 @@ public class UISystem : MonoBehaviour
 
     [Header("其他系統")]
     [SerializeField] private SkillSystem skillSystem; //用於連接技能管理者
-    [SerializeField] private SpriteSystem spriteSystem; //用於連接圖片系統
+    [SerializeField] private BattleSystem battleSystem; //用於連結戰鬥主系統
 
     [Header("玩家屬性")]
     [SerializeField] private TextMeshProUGUI playerUnitName;  //名稱
@@ -33,60 +33,86 @@ public class UISystem : MonoBehaviour
     [Header("按鍵操作系統")]
     [SerializeField] private TextMeshProUGUI[] skill = new TextMeshProUGUI[4];
 
+    [Header("精靈背包")]
+    [SerializeField] private TextMeshProUGUI[] unitName = new TextMeshProUGUI[6];   //名稱
+    [SerializeField] private TextMeshProUGUI[] unitLevel = new TextMeshProUGUI[6];   //等級
+    [SerializeField] private TextMeshProUGUI[] unitHp = new TextMeshProUGUI[6];   //生命值
+    [SerializeField] private Image[] unitImage = new Image[6];   //腳色圖片
+
     /* 顯示單位的圖片
      * 玩家> 背面
      * 敵人> 正面
      */
-    public void ShowPlayerSprite(int unitID)
+    public void ShowPlayerSprite()
     {
-        playerSprite.sprite = spriteSystem.GetSprite(unitID, "rear");
+        playerSprite.sprite = battleSystem.playerBattleData.unitImage[0];
     }
-    public void ShowEnemySprite(int unitID)
+    public void ShowEnemySprite()
     {
-        enemySprite.sprite = spriteSystem.GetSprite(unitID, "front");
+        enemySprite.sprite = battleSystem.enemyBattleData.unitImage[1];
     }
 
     //顯示玩家技能的名字
-    public void ShowSkillName(int skillNum, int[] skillID)
+    public void ShowSkillName()
     {
+        int skillNum = battleSystem.playerBattleData.nowSkillID.Length;
+
         //skillNum=4代表傳進來的技能ID數量
         for(int i=0;i<skillNum;i++)
         {
-            skill[i].text = skillSystem.CheckSkillName(skillID[i]);
+            skill[i].text = skillSystem.CheckSkillName(battleSystem.playerBattleData.nowSkillID[i]);
         }
     } 
 
     //顯示玩家生命值
-    public void ShowPlayerHp(int nowHp, int maxHp)
+    public void ShowPlayerHp()
     {
+        int nowHp = battleSystem.playerBattleData.nowAbilityValue[5];
+        int maxHp = battleSystem.playerBattleData.initAbilityValue[5];
+
         playerHp.text = nowHp + "/" + maxHp;    //599/599 生命值顯示
         playerHpSlider.value = (nowHp+diff) / (maxHp+diff); //滑條展示
     }
 
     //顯示敵人生命值
-    public void ShowEnemyHp(int nowHp, int maxHp)
+    public void ShowEnemyHp()
     {
+        int nowHp = battleSystem.enemyBattleData.nowAbilityValue[5];
+        int maxHp = battleSystem.enemyBattleData.initAbilityValue[5];
+
         enemyHp.text = nowHp + "/" + maxHp;    //599/599 生命值顯示
         enemyHpSlider.value = (nowHp + diff) / (maxHp + diff); //滑條展示
     }
 
     //展示玩家以及敵人的名稱、等級、屬性資訊
-    public void ShowPlayerData(string unitName, int level, Attribute attribute)
+    public void ShowPlayerData()
     {
-        playerUnitName.text = unitName;
-        playerLevel.text = "lv." + level.ToString();
+        playerUnitName.text = battleSystem.playerBattleData.unitName;
+        playerLevel.text = "lv." + battleSystem.playerBattleData.level.ToString();
         /*
          * 記得傳遞屬性的圖片
          * 等建好屬性圖庫
          * */
     }
-    public void ShowEnemyData(string unitName, int level, Attribute attribute)
+    public void ShowEnemyData()
     {
-        enemyUnitName.text = unitName;
-        enemyLevel.text = "lv." + level.ToString();
+        enemyUnitName.text = battleSystem.enemyBattleData.unitName;
+        enemyLevel.text = "lv." + battleSystem.enemyBattleData.level.ToString();
         /*
          * 記得傳遞屬性的圖片
          * 等建好屬性圖庫
          * */
+    }
+
+    //顯示背包中的單位資料
+    public void ShowUnitInPackage()
+    {
+        for(int i = 0;i<6;i++)
+        {
+            unitName[i].text = battleSystem.unitInPackage[i].unitName;  //設置名稱
+            unitLevel[i].text = "lv." + battleSystem.unitInPackage[i].level.ToString();    //設置等級
+            unitHp[i].text = battleSystem.unitInPackage[i].nowAbilityValue[5].ToString() + "/" + battleSystem.unitInPackage[i].initAbilityValue[5].ToString();  //設置生命值
+            unitImage[i].sprite = battleSystem.unitInPackage[i].unitImage[1];  //顯示腳色正面
+        }
     }
 }
